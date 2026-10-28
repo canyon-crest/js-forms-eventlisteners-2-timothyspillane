@@ -128,9 +128,9 @@ document.getElementById("myPara").innerHTML = name + ", your total is $" + total
 document.getElementById("clearBtn").addEventListener('click', function(){
     document.getElementById("myInput").value = "";
     document.getElementsByName("rg")[2].checked = true;
-    for(let i; i<document.getElementsByName("cb"); i++)
+    for(let i=0; i<document.getElementsByName("cb").length; i++)
     {
-        toppings[i].checked=false;
+        document.getElementsByName("cb")[i].checked=false;
     }
     document.getElementById("serviceSelect").value = "dinein";
     document.getElementById("myPara").innerHTML = "";
