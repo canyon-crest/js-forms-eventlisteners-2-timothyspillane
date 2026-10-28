@@ -28,7 +28,7 @@
 //
 //         Example: "hello" → "HELLO!"
 document.getElementById("btnShout").addEventListener('click', function(){
-    outShout.innerHTML = shoutInput.value.toUpperCase()
+    outShout.innerHTML = shoutInput.value.toUpperCase() + "!"
 });
 
 // ============================================
@@ -60,7 +60,7 @@ for(let i=0;i<sizes.length; i++)
 {
     if(sizes[i].checked)
     {
-        sizeCost=0
+        sizeCost=sizes[i].value;
     }
 }
 
@@ -99,7 +99,9 @@ if(serviceSelected == "dinein")
     serviceCost=3;
 }
 //   d) Calculate total: size + toppings + service fee
-let total = serviceCost + toppingsCost + sizeCost;
+
+let total = parseFloat(serviceCost) + parseFloat(toppingsCost) + parseFloat(sizeCost);
+total = parseFloat(total);
 //   e) Get the customer name from the input with ID "myInput"
 let name = document.getElementById('myInput').value;
 if(name=="")
@@ -112,7 +114,7 @@ if(name=="")
 //      Example: "Alice, your total is $13.50"
 //      If name is empty, use "Customer" as the default.
 total = total.toFixed(2);
-document.getElementById("myPara").value = name + ", your total is $" + total;
+document.getElementById("myPara").innerHTML = name + ", your total is $" + total;
 });
 // STEP 4: Get the "Clear" button by ID ("clearBtn")
 //         Add a click event listener.
